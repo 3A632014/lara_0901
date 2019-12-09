@@ -11,6 +11,9 @@
 |
 */
 
+//use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/'         , ['as' => 'home.index' , 'uses' => 'HomeController@index']);
 Route::get('posts'     , ['as' => 'posts.index', 'uses' => 'PostsController@index']);
 Route::get('posts/{id}', ['as' => 'posts.show' , 'uses' => 'PostsController@show']);
@@ -23,3 +26,5 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('posts/create'   , ['as' => 'admin.posts.create', 'uses' => 'AdminPostsController@create']);
     Route::get('posts/{id}/edit', ['as' => 'admin.posts.edit'  , 'uses' => 'AdminPostsController@edit']);
 });
+
+Route::post('posts',['as'=>'admin.posts.store','uses'=>'AdminPostController@store']);
