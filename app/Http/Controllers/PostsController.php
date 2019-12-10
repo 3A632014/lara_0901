@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 use App\Http\Requests;
 
@@ -19,5 +20,15 @@ class PostsController extends Controller
         $data = ['id' => $id];
 
         return view('posts.show', $data);
+    }
+
+    public function store(PostRequest $request)
+    {
+        //
+    }
+
+    public function update(PostRequest $request)
+    {
+        //
     }
 }
